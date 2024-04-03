@@ -1,20 +1,27 @@
 package br.ucsal.biblioteca;
 
+import java.time.LocalDate;
+
 import br.ucsal.biblioteca.controller.Biblioteca;
 import br.ucsal.biblioteca.model.Emprestimo;
 import br.ucsal.biblioteca.model.Livro;
 import br.ucsal.biblioteca.model.Usuario;
+import br.ucsal.biblioteca.threads.EnvioDiarioLembretes;
 import br.ucsal.biblioteca.view.Console;
-
-import java.time.LocalDate;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+    	start();
+    }
+    public static synchronized void start() {
         Biblioteca biblioteca = new Biblioteca();
         fazerCargaInicial(biblioteca);
         Console sistema = new Console(biblioteca);
+        EnvioDiarioLembretes lembretes = new EnvioDiarioLembretes(biblioteca);
+
+        new Thread(lembretes).start();
         sistema.iniciarConsole();
     }
 

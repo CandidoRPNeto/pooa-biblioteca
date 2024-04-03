@@ -1,57 +1,63 @@
 package br.ucsal.biblioteca.model;
 
+import annotations.NameLength;
 
 public class Livro {
-    private static Integer contadorId = 1;
+	private static Integer contadorId = 1;
 
-    private final Integer id;
-    private String titulo;
-    private String autor;
-    private int anoPublicacao;
-    private boolean disponivel;
+	private final Integer id;
 
-    public Livro(String titulo, String autor, int anoPublicacao) {
-        this.id = contadorId++;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.anoPublicacao = anoPublicacao;
-        this.disponivel = true;
-    }
+	@NameLength
+	private String titulo;
+	
+	private String autor;
+	
+	private int anoPublicacao;
+	
+	private boolean disponivel;
 
-    // Métodos getters e setters
-    public String getTitulo() {
-        return titulo;
-    }
+	public Livro(String titulo, String autor, int anoPublicacao) {
+		this.id = contadorId++;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.anoPublicacao = anoPublicacao;
+		this.disponivel = true;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	// Métodos getters e setters
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public String getAutor() {
-        return autor;
-    }
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
+	public String getAutor() {
+		return autor;
+	}
 
-    public int getAnoPublicacao() {
-        return anoPublicacao;
-    }
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
 
-    public void setAnoPublicacao(int anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
-    }
+	public int getAnoPublicacao() {
+		return anoPublicacao;
+	}
 
-    public boolean isDisponivel() {
-        return disponivel;
-    }
+	public void setAnoPublicacao(int anoPublicacao) {
+		this.anoPublicacao = anoPublicacao;
+	}
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
+	public boolean isDisponivel() {
+		return disponivel;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
+	}
+
+	public Integer getId() {
+		return id;
+	}
 }

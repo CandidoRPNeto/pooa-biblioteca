@@ -1,6 +1,6 @@
 package br.ucsal.biblioteca.model;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import annotations.NameLength;
 
 public class Usuario {
 
@@ -8,6 +8,7 @@ public class Usuario {
 
     private int id;
 
+    @NameLength
     private String nome;
 
     public Usuario(String nome) {
